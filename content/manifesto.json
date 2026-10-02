@@ -1,0 +1,137 @@
+{
+    "candidate": {
+        "name": "Mohammad Meraj",
+        "position": "Executive Committee Member",
+        "school": "School of Engineering and Technology",
+        "university": "Maulana Azad National Urdu University",
+        "slogan": "[FINAL SLOGAN - draft: Aapka vote. Aapki awaaz. Hamara SOET!]",
+        "electionDate": "15 October 2026",
+        "votingTimeAndVenue": "[VOTING TIME AND VENUE - add only after official notice]"
+    },
+    "manifesto": {
+        "title": "OUR STUDENT MANIFESTO",
+        "opening": "We will represent these student needs before the university and work for their implementation.",
+        "boxes": [
+            {
+                "id": 1,
+                "heading": "Hostel, Classrooms & Basic Facilities",
+                "points": [
+                    {
+                        "number": 1,
+                        "title": "NEED-BASED HOSTEL QUOTA",
+                        "text": "Advocate for a separate hostel quota for financially disadvantaged students who miss the academic merit cutoff, so financial hardship is considered in hostel allotment."
+                    },
+                    {
+                        "number": 2,
+                        "title": "BETTER CLASSROOM FACILITIES",
+                        "text": "Seek smartboards, sliding writing boards, projectors, and adequate tables and desks for classrooms."
+                    },
+                    {
+                        "number": 3,
+                        "title": "DRINKING WATER, SANITATION AND MENSTRUAL HYGIENE",
+                        "text": "Work for sufficient, regularly maintained water coolers and safe drinking water; clean washrooms with reliable water supply and proper hygiene facilities; and sanitary pad vending machines with designated facilities for safe disposal of used pads."
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "heading": "Student Voice & Campus Life",
+                "points": [
+                    {
+                        "number": 4,
+                        "title": "STUDENT SUGGESTION BOXES",
+                        "text": "Introduce suggestion boxes so students can share concerns and ideas, with regular review and follow-up."
+                    },
+                    {
+                        "number": 5,
+                        "title": "WELL-EQUIPPED CENTRAL CANTEEN",
+                        "text": "Seek a hygienic central canteen with adequate facilities and separate seating areas for students and staff."
+                    },
+                    {
+                        "number": 6,
+                        "title": "SPORTS AND INTERDEPARTMENTAL EVENTS",
+                        "text": "Work for adequate sports equipment and regular interdepartmental sports competitions."
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "heading": "Skills, Clubs & Innovation",
+                "points": [
+                    {
+                        "number": 7,
+                        "title": "TECHNICAL AND SKILL DEVELOPMENT",
+                        "text": "Organise webinars, workshops, technical tests, and hackathons, and support active tech clubs for practical learning."
+                    },
+                    {
+                        "number": 8,
+                        "title": "INNOVATION CLUB AND PROJECT FUNDING",
+                        "text": "Support students with creative and technical ideas through an innovation club. Seek sponsorship, grants, and institutional funding to help turn promising ideas into projects."
+                    },
+                    {
+                        "number": 9,
+                        "title": "SCIENCE, HUMANITIES AND CULTURAL CLUB",
+                        "text": "Promote science and humanities activities alongside social literacy, community service, dance, singing, and other cultural programmes."
+                    },
+                    {
+                        "number": 10,
+                        "title": "INCUBATION AND STARTUP COLLABORATION",
+                        "text": "Work towards an incubation club where students can discuss collaborative ideas with startups and seek mentorship and funding from the university or other institutions."
+                    },
+                    {
+                        "number": 11,
+                        "title": "COLLEGE-FUNDED EDUCATIONAL TOURS",
+                        "text": "Advocate for college-funded academic, cultural, industrial, and study tours, both within the state and outside it."
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "heading": "Labs, Library & Health",
+                "points": [
+                    {
+                        "number": 12,
+                        "title": "LABORATORY UPGRADATION",
+                        "text": "Seek upgraded laboratories with reliable internet, suitable cabins or workspaces, projectors, desktops, and designated bag storage."
+                    },
+                    {
+                        "number": 13,
+                        "title": "LIBRARY UPGRADATION",
+                        "text": "Work for air-conditioned library facilities and an expanded collection of relevant textbooks, reference books, and updated learning materials."
+                    },
+                    {
+                        "number": 14,
+                        "title": "HEALTHCARE UPGRADATION",
+                        "text": "Advocate for improved campus healthcare, including diagnostic facilities, essential medicines, and timely treatment."
+                    }
+                ]
+            },
+            {
+                "id": 5,
+                "heading": "Academics, Industry & Connectivity",
+                "points": [
+                    {
+                        "number": 15,
+                        "title": "CLEAR, BILINGUAL QUESTION PAPERS",
+                        "text": "Seek question papers printed on standard A4 sheets with readable font sizes, replacing cramped or miniature printing. Advocate for questions in both Urdu and English."
+                    },
+                    {
+                        "number": 16,
+                        "title": "CIVIL ENGINEERING: PRACTICAL AND SOFTWARE LEARNING",
+                        "text": "Advocate for software-integrated coursework, varied locations for surveying practicals, and construction-site visits every Saturday."
+                    },
+                    {
+                        "number": 17,
+                        "title": "ECE: INDUSTRY-RELEVANT EQUIPMENT",
+                        "text": "Seek current, industry-relevant chips and development hardware, along with a VLSI test bed for practical learning."
+                    },
+                    {
+                        "number": 18,
+                        "title": "RELIABLE WI-FI IN THE SCHOOL OF ENGINEERING AND TECHNOLOGY",
+                        "text": "Take up poor connectivity with the administration and work for stronger Wi-Fi coverage and reliable internet across classrooms, laboratories, and student activity spaces."
+                    }
+                ]
+            }
+        ]
+    }
+}
