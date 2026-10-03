@@ -17,10 +17,10 @@ const inter = Inter({
 const { candidate } = manifestoData;
 
 export const metadata: Metadata = {
-  title: `${candidate.name} | ${candidate.school} ${candidate.university} Student Manifesto`,
+  title: `${candidate.name} | SOET Federation`,
   description: `Student campaign website for ${candidate.name}, candidate for ${candidate.position}, ${candidate.school}, ${candidate.university}.`,
   openGraph: {
-    title: `${candidate.name} | ${candidate.position} | ${candidate.school}`,
+    title: `${candidate.name} | SOET Federation`,
     description: `Student campaign website for ${candidate.name}, candidate for ${candidate.position}, ${candidate.school}, ${candidate.university}.`,
     type: "website",
   },

@@ -9,7 +9,7 @@ export const size = {
 export const contentType = "image/png";
 
 export default function OpenGraphImage() {
-  const { candidate, manifesto } = manifestoData;
+  const { candidate } = manifestoData;
 
   return new ImageResponse(
     (
@@ -95,7 +95,7 @@ export default function OpenGraphImage() {
                   color: "#F3EAD3",
                 }}
               >
-                {manifesto.title}
+                SOET Federation
               </span>
             </div>
           </div>
