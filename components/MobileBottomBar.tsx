@@ -30,7 +30,7 @@ export default function MobileBottomBar({
         <button
           type="button"
           onClick={handleWhatsAppShare}
-          className="inline-flex items-center justify-center w-full min-h-[48px] px-2 py-2.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-cream bg-near-black border-2 border-near-black shadow-[2px_2px_0px_var(--color-gold)] hover:bg-near-black/90 transition-colors text-center leading-tight focus:outline-none focus-visible:ring-2 focus-visible:ring-near-black focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+          className="pressable inline-flex items-center justify-center w-full min-h-[48px] px-2 py-2.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-cream bg-near-black border-2 border-near-black shadow-[2px_2px_0px_var(--color-gold)] active:shadow-none hover:bg-near-black/90 transition-colors text-center leading-tight focus:outline-none focus-visible:ring-2 focus-visible:ring-near-black focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
         >
           {mobileBar.whatsappLabel}
         </button>
@@ -40,7 +40,7 @@ export default function MobileBottomBar({
           href={formUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center w-full min-h-[48px] px-2 py-2.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-near-black bg-gold border-2 border-near-black shadow-[2px_2px_0px_var(--color-near-black)] hover:bg-gold/90 transition-colors text-center leading-tight focus:outline-none focus-visible:ring-2 focus-visible:ring-near-black focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+          className="pressable inline-flex items-center justify-center w-full min-h-[48px] px-2 py-2.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-near-black bg-gold border-2 border-near-black shadow-[2px_2px_0px_var(--color-near-black)] active:shadow-none hover:bg-gold/90 transition-colors text-center leading-tight focus:outline-none focus-visible:ring-2 focus-visible:ring-near-black focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
         >
           {mobileBar.suggestLabel}
         </a>

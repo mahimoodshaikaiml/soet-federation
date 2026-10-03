@@ -34,15 +34,28 @@ export default function HeroSection({ candidate }: HeroSectionProps) {
       <div className="bg-cream border-2 border-near-black shadow-[6px_6px_0px_var(--color-near-black)] p-6 sm:p-8 md:p-10 flex flex-col md:flex-row items-center gap-8 md:gap-12">
         {/* Candidate Photo */}
         <div className="shrink-0">
-          <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 border-2 border-near-black bg-cream shadow-[4px_4px_0px_var(--color-gold)] overflow-hidden">
-            <Image
-              src="/images/meraj.jpg"
-              alt={candidate.name}
-              fill
-              sizes="(max-width: 640px) 192px, (max-width: 768px) 224px, 256px"
-              className="object-cover object-top"
-              priority
+          <div className="relative hero-photo-float">
+            {/* Small decorative gold accent blocks */}
+            <div
+              className="absolute -top-2.5 -right-2.5 w-5 h-5 sm:w-6 sm:h-6 bg-gold border-2 border-near-black shadow-[2px_2px_0px_var(--color-near-black)] z-10 hero-accent-pulse pointer-events-none"
+              aria-hidden="true"
             />
+            <div
+              className="absolute -bottom-2.5 -left-2.5 w-5 h-5 sm:w-6 sm:h-6 bg-gold border-2 border-near-black shadow-[2px_2px_0px_var(--color-near-black)] z-10 hero-accent-pulse-delayed pointer-events-none"
+              aria-hidden="true"
+            />
+
+            {/* Photo Card with subtle shadow pulse and desktop hover scale */}
+            <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 border-2 border-near-black bg-cream overflow-hidden hero-shadow-pulse transition-transform duration-300 md:hover:scale-[1.018]">
+              <Image
+                src="/images/meraj.jpg"
+                alt={candidate.name}
+                fill
+                sizes="(max-width: 640px) 192px, (max-width: 768px) 224px, 256px"
+                className="object-cover object-top"
+                priority
+              />
+            </div>
           </div>
         </div>
 
@@ -75,7 +88,7 @@ export default function HeroSection({ candidate }: HeroSectionProps) {
           <div className="pt-2 w-full sm:w-auto">
             <a
               href="#manifesto"
-              className="inline-flex items-center justify-center w-full sm:w-auto min-h-[48px] px-8 py-3 bg-near-black text-cream font-bold text-base sm:text-lg uppercase tracking-wider border-2 border-near-black shadow-[4px_4px_0px_var(--color-gold)]"
+              className="pressable inline-flex items-center justify-center w-full sm:w-auto min-h-[48px] px-8 py-3 bg-near-black text-cream font-bold text-base sm:text-lg uppercase tracking-wider border-2 border-near-black shadow-[4px_4px_0px_var(--color-gold)] active:shadow-[2px_2px_0px_var(--color-gold)] hover:bg-near-black/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-near-black focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
             >
               Read the manifesto
             </a>

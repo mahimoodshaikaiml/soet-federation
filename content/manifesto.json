@@ -4,7 +4,7 @@
         "position": "Executive Committee Member",
         "school": "School of Engineering and Technology",
         "university": "Maulana Azad National Urdu University",
-        "slogan": "[FINAL SLOGAN - draft: Aapka vote. Aapki awaaz. Hamara SOET!]",
+        "slogan": "Your trust, my responsibility.",
         "electionDate": "15 October 2026",
         "votingTimeAndVenue": "[VOTING TIME AND VENUE - add only after official notice]"
     },
@@ -150,5 +150,8 @@
         "whatsappLabel": "Share on WhatsApp",
         "suggestLabel": "Suggest an Idea",
         "shareText": "Student campaign website:"
+    },
+    "footer": {
+        "disclaimer": "Student campaign website for Mohammad Meraj. Not an official MANUU website."
     }
 }

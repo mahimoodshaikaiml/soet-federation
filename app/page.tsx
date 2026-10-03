@@ -1,8 +1,8 @@
 import manifestoData from "@/content/manifesto.json";
 import HeroSection from "@/components/HeroSection";
 import ManifestoSection from "@/components/ManifestoSection";
-import AboutSection from "@/components/AboutSection";
 import SuggestIdeaSection from "@/components/SuggestIdeaSection";
+import FooterSection from "@/components/FooterSection";
 import MobileBottomBar from "@/components/MobileBottomBar";
 
 export default function Home() {
@@ -10,11 +10,8 @@ export default function Home() {
     <main className="min-h-screen bg-cream pb-24 md:pb-0">
       <HeroSection candidate={manifestoData.candidate} />
       <ManifestoSection manifesto={manifestoData.manifesto} />
-      <AboutSection
-        about={manifestoData.about}
-        candidate={manifestoData.candidate}
-      />
       <SuggestIdeaSection suggestIdea={manifestoData.suggestIdea} />
+      <FooterSection footer={manifestoData.footer} />
       <MobileBottomBar
         mobileBar={manifestoData.mobileBar}
         formUrl={manifestoData.suggestIdea.formUrl}

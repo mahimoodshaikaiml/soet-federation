@@ -29,3 +29,95 @@ body {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* Hero photo subtle float animation (4px translateY, 5s ease-in-out) */
+@keyframes heroPhotoFloat {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Subtle gold shadow pulse (hard offset shadow, no blur glow) */
+@keyframes heroShadowPulse {
+  0% {
+    box-shadow: 4px 4px 0px var(--color-near-black), 6px 6px 0px var(--color-gold);
+  }
+  100% {
+    box-shadow: 4px 4px 0px var(--color-near-black), 9px 9px 0px var(--color-gold);
+  }
+}
+
+/* Subtle accent block breathing */
+@keyframes heroAccentPulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+.hero-photo-float {
+  animation: heroPhotoFloat 5s ease-in-out infinite alternate;
+}
+
+.hero-shadow-pulse {
+  box-shadow: 4px 4px 0px var(--color-near-black), 6px 6px 0px var(--color-gold);
+  animation: heroShadowPulse 5s ease-in-out infinite alternate;
+}
+
+.hero-accent-pulse {
+  animation: heroAccentPulse 4s ease-in-out infinite alternate;
+}
+
+.hero-accent-pulse-delayed {
+  animation: heroAccentPulse 4s ease-in-out 1.5s infinite alternate;
+}
+
+/* Tactile Neo-Brutalist Pressable Feedback Utility */
+.pressable {
+  touch-action: manipulation;
+  transition: transform 100ms ease, box-shadow 100ms ease, background-color 150ms ease, color 150ms ease;
+}
+
+.pressable:active {
+  transform: translate(2px, 2px);
+}
+
+/* Accordion item: tactile press container when header button is activated */
+.pressable-accordion {
+  transition: transform 100ms ease, box-shadow 100ms ease;
+}
+
+.pressable-accordion:has(> button:active) {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--color-near-black);
+}
+
+/* Prevent double transform on the inner accordion button */
+.pressable-accordion .pressable:active {
+  transform: none;
+}
+
+/* Respect prefers-reduced-motion: disable all photo animations and press transforms */
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo-float,
+  .hero-shadow-pulse,
+  .hero-accent-pulse,
+  .hero-accent-pulse-delayed {
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .pressable,
+  .pressable:active,
+  .pressable-accordion,
+  .pressable-accordion:has(> button:active) {
+    transform: none !important;
+    transition: none !important;
+  }
+}

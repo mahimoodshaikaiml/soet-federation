@@ -46,10 +46,15 @@ export interface MobileBarContent {
   shareText: string;
 }
 
+export interface FooterContent {
+  disclaimer: string;
+}
+
 export interface ManifestoData {
   candidate: Candidate;
   manifesto: ManifestoContent;
   about: AboutContent;
   suggestIdea: SuggestIdeaContent;
   mobileBar: MobileBarContent;
+  footer: FooterContent;
 }
