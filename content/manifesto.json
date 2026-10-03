@@ -145,5 +145,10 @@
         "body": "Have a suggestion for SOET? Share your idea through this form.",
         "buttonText": "Share Your Idea",
         "formUrl": "https://forms.gle/L7dEoCy4L81GEKyj8"
+    },
+    "mobileBar": {
+        "whatsappLabel": "Share on WhatsApp",
+        "suggestLabel": "Suggest an Idea",
+        "shareText": "Student campaign website:"
     }
 }

@@ -40,9 +40,16 @@ export interface SuggestIdeaContent {
   formUrl: string;
 }
 
+export interface MobileBarContent {
+  whatsappLabel: string;
+  suggestLabel: string;
+  shareText: string;
+}
+
 export interface ManifestoData {
   candidate: Candidate;
   manifesto: ManifestoContent;
   about: AboutContent;
   suggestIdea: SuggestIdeaContent;
+  mobileBar: MobileBarContent;
 }
