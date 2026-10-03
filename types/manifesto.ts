@@ -26,7 +26,23 @@ export interface ManifestoContent {
   boxes: ManifestoBox[];
 }
 
+export interface AboutContent {
+  eyebrow: string;
+  title: string;
+  body: string;
+}
+
+export interface SuggestIdeaContent {
+  eyebrow: string;
+  title: string;
+  body: string;
+  buttonText: string;
+  formUrl: string;
+}
+
 export interface ManifestoData {
   candidate: Candidate;
   manifesto: ManifestoContent;
+  about: AboutContent;
+  suggestIdea: SuggestIdeaContent;
 }

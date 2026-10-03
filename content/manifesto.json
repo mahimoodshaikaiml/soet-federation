@@ -133,5 +133,17 @@
                 ]
             }
         ]
+    },
+    "about": {
+        "eyebrow": "Candidate Profile",
+        "title": "About the Candidate",
+        "body": "Verified candidate profile details will be added here."
+    },
+    "suggestIdea": {
+        "eyebrow": "Student Voice",
+        "title": "Suggest an Idea",
+        "body": "Have a suggestion for SOET? Share your idea through this form.",
+        "buttonText": "Share Your Idea",
+        "formUrl": "https://forms.gle/L7dEoCy4L81GEKyj8"
     }
 }
