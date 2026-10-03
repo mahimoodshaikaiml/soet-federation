@@ -1,5 +1,6 @@
 import type { ManifestoContent } from "@/types/manifesto";
 import ManifestoCard from "@/components/ManifestoCard";
+import ManifestoTopicNav from "@/components/ManifestoTopicNav";
 
 interface ManifestoSectionProps {
   manifesto: ManifestoContent;
@@ -18,12 +19,16 @@ export default function ManifestoSection({ manifesto }: ManifestoSectionProps) {
         </p>
       </div>
 
+      {/* Sticky Topic Navigation */}
+      <ManifestoTopicNav boxes={manifesto.boxes} />
+
       {/* 5 Manifesto Topic Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
         {manifesto.boxes.map((box) => (
           <div
             key={box.id}
-            className={box.id === 5 ? "md:col-span-2" : undefined}
+            id={`manifesto-topic-${box.id}`}
+            className={`scroll-mt-20 sm:scroll-mt-24 ${box.id === 5 ? "md:col-span-2" : ""}`}
           >
             <ManifestoCard box={box} />
           </div>

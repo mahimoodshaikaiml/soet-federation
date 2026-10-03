@@ -1,4 +1,5 @@
 import type { ManifestoBox } from "@/types/manifesto";
+import ManifestoAccordion from "@/components/ManifestoAccordion";
 
 interface ManifestoCardProps {
   box: ManifestoBox;
@@ -14,24 +15,12 @@ export default function ManifestoCard({ box }: ManifestoCardProps) {
         </h3>
       </div>
 
-      {/* Points List */}
-      <ul className="space-y-6 flex-1 list-none p-0 m-0">
+      {/* Points Accordions */}
+      <div className="space-y-4 flex-1">
         {box.points.map((point) => (
-          <li key={point.number} className="flex items-start gap-4">
-            <span className="shrink-0 flex items-center justify-center w-8 h-8 bg-near-black text-cream font-bold text-sm border-2 border-near-black shadow-[2px_2px_0px_var(--color-gold)]">
-              {point.number}
-            </span>
-            <div className="space-y-1.5 flex-1">
-              <h4 className="text-base font-bold uppercase tracking-wide text-near-black">
-                {point.title}
-              </h4>
-              <p className="text-base leading-relaxed text-near-black/85">
-                {point.text}
-              </p>
-            </div>
-          </li>
+          <ManifestoAccordion key={point.number} point={point} />
         ))}
-      </ul>
+      </div>
     </article>
   );
 }
