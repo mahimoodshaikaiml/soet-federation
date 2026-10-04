@@ -106,8 +106,13 @@ export default function HeroSection({ candidate }: HeroSectionProps) {
             </p>
           </div>
 
-          {/* Call to action button */}
-          <div className="pt-2 w-full sm:w-auto">
+          {/* Support Line */}
+          <p className="text-xs sm:text-sm font-medium text-near-black/75 max-w-md leading-relaxed text-center md:text-left">
+            A stronger student voice for better facilities, opportunities and representation.
+          </p>
+
+          {/* Call to action & Election Date */}
+          <div className="pt-2 flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
             <a
               href="#manifesto"
               onClick={() => {
@@ -119,6 +124,19 @@ export default function HeroSection({ candidate }: HeroSectionProps) {
             >
               Read the manifesto
             </a>
+
+            {/* Election Day Compact Badge */}
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-2.5 bg-cream border-2 border-near-black shadow-[3px_3px_0px_var(--color-gold)] self-center sm:self-auto">
+              <span className="w-2.5 h-2.5 bg-gold border border-near-black rotate-45 shrink-0" aria-hidden="true" />
+              <div className="text-left">
+                <span className="block text-[10px] font-bold uppercase tracking-wider text-near-black/70 leading-none">
+                  Election Day
+                </span>
+                <span className="block text-xs sm:text-sm font-black uppercase tracking-wider text-near-black leading-tight mt-0.5">
+                  15 OCTOBER 2026
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

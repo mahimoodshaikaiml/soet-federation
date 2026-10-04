@@ -1,5 +1,6 @@
 import manifestoData from "@/content/manifesto.json";
 import HeroSection from "@/components/HeroSection";
+import TopPrioritiesSection from "@/components/TopPrioritiesSection";
 import ManifestoSection from "@/components/ManifestoSection";
 import SuggestIdeaSection from "@/components/SuggestIdeaSection";
 import CommunitySection from "@/components/CommunitySection";
@@ -20,6 +21,8 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-cream pb-24 md:pb-0">
       <HeroSection candidate={manifestoData.candidate} />
+      <SectionDivider />
+      <TopPrioritiesSection />
       <SectionDivider />
       <ManifestoSection manifesto={manifestoData.manifesto} />
       <SectionDivider />
