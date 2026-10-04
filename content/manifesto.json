@@ -146,6 +146,13 @@
         "buttonText": "Share Your Idea",
         "formUrl": "https://forms.gle/L7dEoCy4L81GEKyj8"
     },
+    "community": {
+        "eyebrow": "SOET Federation",
+        "title": "Join Our WhatsApp Community",
+        "body": "Connect with the SOET Federation community on WhatsApp.",
+        "buttonText": "Join Community",
+        "inviteUrl": "https://chat.whatsapp.com/EVIyW4IMjp4GBZmazHweaY"
+    },
     "mobileBar": {
         "whatsappLabel": "Share on WhatsApp",
         "suggestLabel": "Suggest an Idea",

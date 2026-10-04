@@ -40,6 +40,14 @@ export interface SuggestIdeaContent {
   formUrl: string;
 }
 
+export interface CommunityContent {
+  eyebrow: string;
+  title: string;
+  body: string;
+  buttonText: string;
+  inviteUrl: string;
+}
+
 export interface MobileBarContent {
   whatsappLabel: string;
   suggestLabel: string;
@@ -55,6 +63,7 @@ export interface ManifestoData {
   manifesto: ManifestoContent;
   about: AboutContent;
   suggestIdea: SuggestIdeaContent;
+  community: CommunityContent;
   mobileBar: MobileBarContent;
   footer: FooterContent;
 }
