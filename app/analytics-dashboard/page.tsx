@@ -1,6 +1,8 @@
-import { notFound } from "next/navigation";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 import Link from "next/link";
 import { getSupabaseServerClient } from "@/lib/supabase-server";
+import { verifyDashboardAuthToken, COOKIE_NAME } from "@/lib/dashboard-auth";
 
 export const dynamic = "force-dynamic";
 
@@ -13,9 +15,11 @@ interface AnalyticsEventRow {
 }
 
 export default async function AnalyticsDashboardPage() {
-  // Prevent public access in production
-  if (process.env.NODE_ENV === "production") {
-    notFound();
+  const cookieStore = await cookies();
+  const token = cookieStore.get(COOKIE_NAME)?.value;
+
+  if (!token || !verifyDashboardAuthToken(token)) {
+    redirect("/analytics-login");
   }
 
   let events: AnalyticsEventRow[] = [];
@@ -199,7 +203,7 @@ export default async function AnalyticsDashboardPage() {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <div className="inline-block px-3 py-1 bg-gold border-2 border-near-black text-near-black text-xs font-bold uppercase tracking-wider shadow-[2px_2px_0px_var(--color-near-black)] mb-3">
-                Local Testing Dashboard
+                PRIVATE ANALYTICS
               </div>
               <h1 className="font-display text-4xl sm:text-5xl uppercase tracking-wider text-near-black leading-none">
                 SOET Federation
@@ -214,10 +218,18 @@ export default async function AnalyticsDashboardPage() {
             <div className="flex items-center gap-3">
               <Link
                 href="/"
-                className="pressable inline-flex items-center px-4 py-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-near-black bg-cream border-2 border-near-black shadow-[2px_2px_0px_var(--color-near-black)] hover:bg-gold transition-colors"
+                className="pressable inline-flex items-center px-3.5 py-1.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-near-black bg-cream border-2 border-near-black shadow-[2px_2px_0px_var(--color-near-black)] hover:bg-gold transition-colors"
               >
                 &larr; View Website
               </Link>
+              <form action="/api/analytics-auth/logout" method="POST">
+                <button
+                  type="submit"
+                  className="pressable inline-flex items-center px-3.5 py-1.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-cream bg-near-black border-2 border-near-black shadow-[2px_2px_0px_var(--color-gold)] active:shadow-none hover:bg-near-black/90 transition-colors"
+                >
+                  Log Out
+                </button>
+              </form>
             </div>
           </div>
 
@@ -349,43 +361,80 @@ export default async function AnalyticsDashboardPage() {
                 </span>
               </div>
 
-              <div className="space-y-4 pt-2">
-                {/* Mobile */}
-                <div className="p-3 border-2 border-near-black/20 bg-near-black/[0.02]">
-                  <div className="flex justify-between items-center mb-1.5">
-                    <span className="text-sm font-bold uppercase tracking-wider text-near-black">
-                      Mobile (&lt; 768px)
-                    </span>
-                    <span className="font-display text-2xl text-near-black">
-                      {mobileCount} ({mobilePct}%)
-                    </span>
-                  </div>
-                  <div className="w-full bg-near-black/15 h-3 border border-near-black">
+              {totalDeviceSessions === 0 ? (
+                <p className="text-sm text-near-black/60 italic py-8 text-center">
+                  No device data yet.
+                </p>
+              ) : (
+                <div className="py-4 flex flex-col sm:flex-row items-center justify-around gap-6">
+                  {/* CSS-Only Donut Chart */}
+                  <div className="relative shrink-0 flex items-center justify-center">
                     <div
-                      className="bg-gold h-full"
-                      style={{ width: `${mobilePct}%` }}
-                    />
+                      className="w-40 h-40 sm:w-44 sm:h-44 rounded-full border-2 border-near-black shadow-[4px_4px_0px_var(--color-near-black)] flex items-center justify-center transition-transform duration-200"
+                      style={{
+                        background: `conic-gradient(var(--color-gold) 0% ${mobilePct}%, var(--color-near-black) ${mobilePct}% 100%)`,
+                      }}
+                      role="img"
+                      aria-label={`Device breakdown: Mobile ${mobilePct}%, Desktop ${desktopPct}%`}
+                    >
+                      {/* Inner Cream Hole */}
+                      <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-cream border-2 border-near-black flex flex-col items-center justify-center text-center p-1.5 shadow-[inset_1px_1px_2px_rgba(0,0,0,0.1)]">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-near-black/60 leading-tight">
+                          Total Devices
+                        </span>
+                        <span className="font-display text-3xl sm:text-4xl text-near-black leading-none mt-0.5">
+                          {totalDeviceSessions}
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                </div>
 
-                {/* Desktop */}
-                <div className="p-3 border-2 border-near-black/20 bg-near-black/[0.02]">
-                  <div className="flex justify-between items-center mb-1.5">
-                    <span className="text-sm font-bold uppercase tracking-wider text-near-black">
-                      Desktop (&ge; 768px)
-                    </span>
-                    <span className="font-display text-2xl text-near-black">
-                      {desktopCount} ({desktopPct}%)
-                    </span>
-                  </div>
-                  <div className="w-full bg-near-black/15 h-3 border border-near-black">
-                    <div
-                      className="bg-near-black h-full"
-                      style={{ width: `${desktopPct}%` }}
-                    />
+                  {/* Legend */}
+                  <div className="space-y-4 w-full sm:w-auto">
+                    {/* Mobile Legend Item */}
+                    <div className="p-3 border-2 border-near-black/20 bg-near-black/[0.02] flex items-center gap-3 min-w-[180px]">
+                      <span
+                        className="w-4 h-4 shrink-0 bg-gold border-2 border-near-black shadow-[1px_1px_0px_var(--color-near-black)]"
+                        aria-hidden="true"
+                      />
+                      <div className="flex-1 min-w-0">
+                        <div className="flex justify-between items-baseline gap-2">
+                          <span className="text-xs font-bold uppercase tracking-wider text-near-black">
+                            Mobile
+                          </span>
+                          <span className="font-display text-lg text-near-black">
+                            {mobilePct}%
+                          </span>
+                        </div>
+                        <span className="text-xs text-near-black/60 font-semibold block">
+                          {mobileCount} {mobileCount === 1 ? "session" : "sessions"}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Desktop Legend Item */}
+                    <div className="p-3 border-2 border-near-black/20 bg-near-black/[0.02] flex items-center gap-3 min-w-[180px]">
+                      <span
+                        className="w-4 h-4 shrink-0 bg-near-black border-2 border-near-black shadow-[1px_1px_0px_var(--color-gold)]"
+                        aria-hidden="true"
+                      />
+                      <div className="flex-1 min-w-0">
+                        <div className="flex justify-between items-baseline gap-2">
+                          <span className="text-xs font-bold uppercase tracking-wider text-near-black">
+                            Desktop
+                          </span>
+                          <span className="font-display text-lg text-near-black">
+                            {desktopPct}%
+                          </span>
+                        </div>
+                        <span className="text-xs text-near-black/60 font-semibold block">
+                          {desktopCount} {desktopCount === 1 ? "session" : "sessions"}
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
 
             <div className="mt-4 pt-3 border-t border-near-black/15 text-xs text-near-black/50">
