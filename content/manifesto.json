@@ -1,7 +1,8 @@
 {
     "candidate": {
-        "name": "Mohammad Meraj",
+        "name": "MD MERAZ",
         "position": "Executive Committee Member",
+        "program": "CSE",
         "school": "School of Engineering and Technology",
         "university": "Maulana Azad National Urdu University",
         "slogan": "Your trust, my responsibility.",
@@ -159,6 +160,6 @@
         "shareText": "Student campaign website:"
     },
     "footer": {
-        "disclaimer": "Student campaign website for Mohammad Meraj. Not an official MANUU website."
+        "disclaimer": "Student campaign website for MD MERAZ. Not an official MANUU website."
     }
 }

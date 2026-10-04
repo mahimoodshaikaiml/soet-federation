@@ -14,8 +14,11 @@ export default function ManifestoSection({ manifesto }: ManifestoSectionProps) {
         <h2 className="font-display text-4xl sm:text-5xl md:text-6xl uppercase tracking-wider text-near-black leading-none mb-4">
           {manifesto.title}
         </h2>
-        <p className="text-base sm:text-lg font-medium text-near-black/90 leading-relaxed max-w-3xl">
+        <p className="text-base sm:text-lg font-medium text-near-black/90 leading-relaxed max-w-3xl mb-2">
           {manifesto.opening}
+        </p>
+        <p className="text-xs sm:text-sm text-near-black/60 font-semibold uppercase tracking-wider">
+          Student needs we will represent and work for.
         </p>
       </div>
 
@@ -23,7 +26,7 @@ export default function ManifestoSection({ manifesto }: ManifestoSectionProps) {
       <ManifestoTopicNav boxes={manifesto.boxes} />
 
       {/* 5 Manifesto Topic Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
         {manifesto.boxes.map((box) => (
           <div
             key={box.id}

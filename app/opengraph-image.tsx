@@ -140,7 +140,7 @@ export default function OpenGraphImage() {
                 letterSpacing: "0.03em",
                 color: "#1A1410",
                 lineHeight: 1.05,
-                marginBottom: "12px",
+                marginBottom: "8px",
               }}
             >
               {candidate.name}
@@ -148,7 +148,20 @@ export default function OpenGraphImage() {
 
             <div
               style={{
-                fontSize: 26,
+                fontSize: 28,
+                fontWeight: 800,
+                textTransform: "uppercase",
+                letterSpacing: "0.06em",
+                color: "#1A1410",
+                marginBottom: "8px",
+              }}
+            >
+              {candidate.program}
+            </div>
+
+            <div
+              style={{
+                fontSize: 24,
                 fontWeight: 600,
                 color: "#1A1410",
                 opacity: 0.9,

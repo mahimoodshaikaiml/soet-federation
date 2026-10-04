@@ -1,6 +1,7 @@
 export interface Candidate {
   name: string;
   position: string;
+  program: string;
   school: string;
   university: string;
   slogan: string;
