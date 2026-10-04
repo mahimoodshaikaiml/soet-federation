@@ -9,7 +9,7 @@ export default function HeroSection({ candidate }: HeroSectionProps) {
   return (
     <section className="w-full max-w-4xl mx-auto px-4 py-8 sm:py-12 md:py-16">
       {/* University & School Header Banner */}
-      <div className="flex items-center justify-between gap-3.5 sm:gap-5 p-3.5 sm:p-4 mb-8 bg-cream border-2 border-near-black border-b-4 border-b-gold shadow-[4px_4px_0px_var(--color-near-black)] transition-transform duration-200 md:hover:-translate-y-0.5">
+      <div className="flex items-center justify-between gap-3.5 sm:gap-5 p-3 sm:p-3.5 mb-8 bg-cream border-2 border-near-black border-b-4 border-b-gold shadow-[4px_4px_0px_var(--color-near-black)] transition-transform duration-200 md:hover:-translate-y-0.5">
         <div className="relative shrink-0 w-12 h-16 sm:w-16 sm:h-20">
           <Image
             src="/images/manuu-logo.jpg"
@@ -28,12 +28,12 @@ export default function HeroSection({ candidate }: HeroSectionProps) {
             {candidate.school}
           </span>
         </div>
-        <div className="relative shrink-0 w-16 h-16 sm:w-24 sm:h-24">
+        <div className="relative shrink-0 w-[72px] h-[72px] sm:w-28 sm:h-28">
           <Image
             src="/images/soet-logo.png"
             alt={candidate.school}
             fill
-            sizes="(max-width: 640px) 64px, 96px"
+            sizes="(max-width: 640px) 72px, 112px"
             className="object-contain"
           />
         </div>
@@ -87,12 +87,6 @@ export default function HeroSection({ candidate }: HeroSectionProps) {
           <h1 className="font-display text-5xl sm:text-6xl md:text-7xl uppercase tracking-wider text-near-black leading-none">
             {candidate.name}
           </h1>
-
-          <div>
-            <span className="inline-flex items-center px-3 py-1 bg-near-black text-gold text-xs sm:text-sm font-black uppercase tracking-widest border-2 border-near-black shadow-[2px_2px_0px_var(--color-gold)]">
-              {candidate.program}
-            </span>
-          </div>
 
           <p className="text-sm sm:text-base font-semibold text-near-black/80">
             {candidate.school}
