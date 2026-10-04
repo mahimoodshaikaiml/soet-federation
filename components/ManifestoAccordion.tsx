@@ -2,15 +2,39 @@
 
 import { useState } from "react";
 import type { ManifestoPoint } from "@/types/manifesto";
+import { trackEvent } from "@/lib/analytics";
 
 interface ManifestoAccordionProps {
   point: ManifestoPoint;
+  topicId?: number;
+  topicHeading?: string;
 }
 
-export default function ManifestoAccordion({ point }: ManifestoAccordionProps) {
+export default function ManifestoAccordion({
+  point,
+  topicId,
+  topicHeading,
+}: ManifestoAccordionProps) {
   const [isOpen, setIsOpen] = useState(false);
   const contentId = `manifesto-point-content-${point.number}`;
   const headerId = `manifesto-point-header-${point.number}`;
+
+  const handleToggle = () => {
+    setIsOpen((prev) => {
+      const nextOpen = !prev;
+      if (nextOpen) {
+        trackEvent("manifesto_open", {
+          eventLabel: point.title,
+          metadata: {
+            pointId: (point as { id?: number; number: number }).id ?? point.number,
+            topicId,
+            topicHeading,
+          },
+        });
+      }
+      return nextOpen;
+    });
+  };
 
   return (
     <div className="border-2 border-near-black bg-cream shadow-[3px_3px_0px_var(--color-near-black)] pressable-accordion">
@@ -19,7 +43,7 @@ export default function ManifestoAccordion({ point }: ManifestoAccordionProps) {
         id={headerId}
         aria-expanded={isOpen}
         aria-controls={contentId}
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={handleToggle}
         className="pressable w-full min-h-[48px] p-3 sm:p-4 flex items-center justify-between gap-3 text-left cursor-pointer hover:bg-near-black/[0.03] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-near-black focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
       >
         <div className="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">

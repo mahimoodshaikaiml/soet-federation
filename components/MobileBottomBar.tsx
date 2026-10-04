@@ -1,6 +1,7 @@
 "use client";
 
 import type { MobileBarContent } from "@/types/manifesto";
+import { trackEvent } from "@/lib/analytics";
 
 interface MobileBottomBarProps {
   mobileBar: MobileBarContent;
@@ -12,6 +13,9 @@ export default function MobileBottomBar({
   formUrl,
 }: MobileBottomBarProps) {
   const handleWhatsAppShare = () => {
+    trackEvent("whatsapp_share_click", {
+      eventLabel: "Share on WhatsApp",
+    });
     if (typeof window === "undefined") return;
     const currentUrl = window.location.href;
     const message = `${mobileBar.shareText} ${currentUrl}`.trim();
@@ -40,6 +44,11 @@ export default function MobileBottomBar({
           href={formUrl}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => {
+            trackEvent("suggestion_click", {
+              eventLabel: "Share Your Idea",
+            });
+          }}
           className="pressable inline-flex items-center justify-center w-full min-h-[48px] px-2 py-2.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-near-black bg-gold border-2 border-near-black shadow-[2px_2px_0px_var(--color-near-black)] active:shadow-none hover:bg-gold/90 transition-colors text-center leading-tight focus:outline-none focus-visible:ring-2 focus-visible:ring-near-black focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
         >
           {mobileBar.suggestLabel}

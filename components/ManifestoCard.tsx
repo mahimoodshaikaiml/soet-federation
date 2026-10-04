@@ -21,7 +21,12 @@ export default function ManifestoCard({ box }: ManifestoCardProps) {
       {/* Points Accordions */}
       <div className="space-y-4 flex-1">
         {box.points.map((point) => (
-          <ManifestoAccordion key={point.number} point={point} />
+          <ManifestoAccordion
+            key={point.number}
+            point={point}
+            topicId={box.id}
+            topicHeading={box.heading}
+          />
         ))}
       </div>
     </article>

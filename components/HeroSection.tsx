@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import type { Candidate } from "@/types/manifesto";
+import { trackEvent } from "@/lib/analytics";
 
 interface HeroSectionProps {
   candidate: Candidate;
@@ -107,6 +110,11 @@ export default function HeroSection({ candidate }: HeroSectionProps) {
           <div className="pt-2 w-full sm:w-auto">
             <a
               href="#manifesto"
+              onClick={() => {
+                trackEvent("read_manifesto_click", {
+                  eventLabel: "Read the Manifesto",
+                });
+              }}
               className="pressable inline-flex items-center justify-center w-full sm:w-auto min-h-[48px] px-8 py-3 bg-near-black text-cream font-bold text-base sm:text-lg uppercase tracking-wider border-2 border-near-black shadow-[4px_4px_0px_var(--color-gold)] active:shadow-[2px_2px_0px_var(--color-gold)] hover:bg-near-black/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-near-black focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
             >
               Read the manifesto

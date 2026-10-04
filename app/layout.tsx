@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, Inter } from "next/font/google";
 import manifestoData from "@/content/manifesto.json";
+import AnalyticsTracker from "@/components/AnalyticsTracker";
 import "./globals.css";
 
 const bebasNeue = Bebas_Neue({
@@ -40,6 +41,7 @@ export default function RootLayout({
     <html lang="en" className={`${bebasNeue.variable} ${inter.variable}`}>
       <body className="min-h-screen bg-cream text-near-black antialiased">
         {children}
+        <AnalyticsTracker />
       </body>
     </html>
   );
