@@ -17,11 +17,16 @@ const inter = Inter({
 const { candidate } = manifestoData;
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://soet-federation.vercel.app"),
   title: `${candidate.name} | SOET Federation`,
   description: `Student campaign website for ${candidate.name}, candidate for ${candidate.position}, ${candidate.school}, ${candidate.university}.`,
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: `${candidate.name} | SOET Federation`,
     description: `Student campaign website for ${candidate.name}, candidate for ${candidate.position}, ${candidate.school}, ${candidate.university}.`,
+    url: "/",
     type: "website",
   },
 };
